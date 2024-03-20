@@ -10,7 +10,7 @@ it("User inputs do not disappear upon navigating away from page", () => {
 
     cy.addVals(0,'15','20','34','7','10','3')
     cy.addVals(3,'68','19','46','1','5','9')
-    cy.addVals(6,'68','19','46','1','5','9')
+    cy.addVals(6,'31','83','12','8','2','1')
 
     cy.contains('Generate chart').click()
 
@@ -25,5 +25,5 @@ it("User inputs do not disappear upon navigating away from page", () => {
 
     cy.checkVals(0,'15','20','34','7','10','3')
     cy.checkVals(3,'68','19','46','1','5','9')
-    cy.checkVals(6,'68','19','46','1','5','9')
+    cy.checkVals(6,'31','83','12','8','2','1')
 })
