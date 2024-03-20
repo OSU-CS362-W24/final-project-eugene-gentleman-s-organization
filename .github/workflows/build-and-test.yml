@@ -2,9 +2,9 @@ name: Build and test
 on: 
   workflow_call:
     inputs:
-      upload-pages-artifacts:
+      upload-pages-artifact:
         type: boolean
-        required: true
+        required: false
 
 jobs:
   build-and-test:
