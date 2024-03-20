@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 require("@testing-library/cypress/add-commands")
 
+// adds vals of 3 data points at a time
 Cypress.Commands.add('addVals', (cur,x1,x2,x3,y1,y2,y3) => {
 
     cy.get('[class="x-value-input"]').eq(cur).type(x1)
@@ -45,5 +46,23 @@ Cypress.Commands.add('addVals', (cur,x1,x2,x3,y1,y2,y3) => {
     cy.get('[class="y-value-input"]').eq(cur).type(y3)
 
     cy.contains('+').click()
+
+})
+
+// asserts vals of 3 data points at a time
+Cypress.Commands.add('checkVals', (cur,x1,x2,x3,y1,y2,y3) => {
+
+    cy.get('[class="x-value-input"]').eq(cur).should('have.value', x1)
+    cy.get('[class="y-value-input"]').eq(cur).should('have.value', y1)
+
+    cur += 1
+
+    cy.get('[class="x-value-input"]').eq(cur).should('have.value', x2)
+    cy.get('[class="y-value-input"]').eq(cur).should('have.value', y2)
+
+    cur += 1
+
+    cy.get('[class="x-value-input"]').eq(cur).should('have.value', x3)
+    cy.get('[class="y-value-input"]').eq(cur).should('have.value', y3)
 
 })
